@@ -19,7 +19,7 @@ try {
 //課題：ソート降順/5レコードのみ取得
 $sql = "SELECT * FROM gs_users_table WHERE id=:id";
 $stmt = $pdo->prepare($sql);
-$stmt->bindValue(":id",$lid);
+$stmt->bindValue(":id",$id);
 $status = $stmt->execute();
 
 //３．データ表示
@@ -62,9 +62,9 @@ if($status==false) {
   <div class="jumbotron">
    <fieldset>
     <legend>A学校：先生/学生登録</legend>
-     <label>名前：<input type="text" name="name" value="<?$res["name"]?>"></label><br>
-     <label>Login ID：<input type="text" name="lid" value="<?$res["lid"]?>"></label><br>
-     <label>Login PW<input type="text" name="lpw" value="<?$res["lpw"]?>"></label><br>
+     <label>名前：<input type="text" name="name" value="<?=$res["name"]?>"></label><br>
+     <label>Login ID：<input type="text" name="lid" value="<?=$res["lid"]?>"></label><br>
+     <label>Login PW<input type="text" name="lpw" value="<?=$res["lpw"]?>"></label><br>
      <label>管理FLG：
       一般（学生）<input type="radio" name="kanri_flg" value="0">　
       管理者（先生）<input type="radio" name="kanri_flg" value="1">
